@@ -14,7 +14,7 @@ git 'https://github.com/keerthirajamani/nodejs-jenkins.git'
 stage('Building our image') {
 steps{
 script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
+dockerImage = docker.build registry
 }
 }
 }
@@ -33,23 +33,11 @@ steps{
 script {
 docker.withRegistry( '', registryCredential ) {
 dockerImage.pull()
-//sh "docker run -p 3000:3000 $registry:$BUILD_NUMBER"
+sh "docker run -p 3000:3000 $registry"
 }
 }
 }
 }
-
-stage('Front-end') {
-            agent {
-                docker { image $registry:$BUILD_NUMBER }
-            }
-            steps {
-                sh 'node --version'
-            }
-        }
-
-
-
 
 
 /*
