@@ -1,4 +1,7 @@
 node {
+  withEnv(['PATH+JAVA=/usr/local/bin']) {
+    ...
+  }
      def app 
      stage('clone repository') {
       checkout scm  
@@ -19,3 +22,5 @@ node {
    }
 }
 }
+
+/usr/local/bin
