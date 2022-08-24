@@ -1,6 +1,6 @@
 node {
-  withEnv(['PATH+JAVA=/usr/local/bin']) {
-    ...
+  withEnv(['PATH_DOCKER=/usr/local/bin']) {
+    sh echo 'My name is $PATH_DOCKER'
   }
      def app 
      stage('clone repository') {
