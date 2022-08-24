@@ -39,7 +39,7 @@ sh "docker run -p 3000:3000 ${registry}"
 }
 }
 
-tage('Invoke New Pipeline') {
+stage('Invoke New Pipeline') {
         steps{
                 build job: 'Git'
         }
