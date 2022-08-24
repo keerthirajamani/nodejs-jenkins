@@ -33,7 +33,7 @@ steps{
 script {
 docker.withRegistry( '', registryCredential ) {
 dockerImage.pull()
-sh "docker run -p 1257:1257 ${registry}:$BUILD_NUMBER"
+//sh "docker run -p 1257:1257 ${registry}:$BUILD_NUMBER"
 }
 }
 }
