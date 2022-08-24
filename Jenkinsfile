@@ -1,29 +1,3 @@
-/*node {
-  withEnv(['PATH_DOCKER=/usr/local/bin']) {
-    sh echo 'My name is $PATH_DOCKER'
-  }
-     def app 
-     stage('clone repository') {
-      checkout scm  
-    }
-     stage('Build docker Image'){
-        sh 'env'
-      app = docker.build("keerthirajamani/jenkins_test")
-    }
-     stage('Test Image'){ //scan image
-       app.inside {
-         sh 'echo "TEST Success"'
-      }  
-    }
-     stage('Push Image'){
-       docker.withRegistry('https://registry.hub.docker.com', 'git') {            
-       app.push("${env.BUILD_NUMBER}")            
-       app.push("latest")   
-   }
-}
-}
-*/
-
 pipeline {
 environment {
 registry = "keerthirajamani/nodejsrepo"
@@ -53,6 +27,27 @@ dockerImage.push()
 }
 }
 }
+
+stage('Pull docker image') {
+steps{
+script {
+docker.withRegistry( '', registryCredential ) {
+dockerImage.pull()
+sh "docker run -p 3000:3000 ${registry}"
+}
+}
+}
+}
+
+tage('Invoke New Pipeline') {
+        steps{
+                build job: 'Git'
+        }
+    }
+
+
+
+
 /*
 stage('Cleaning up') {
 steps{
