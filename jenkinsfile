@@ -9,7 +9,7 @@ node {
     }
      stage('Test Image'){ //scan image
        app.inside {
-         sh 'echo "TEST PASSED"'
+         sh 'echo "TEST Success"'
       }  
     }
      stage('Push Image'){
