@@ -22,8 +22,3 @@ node {
    }
 }
 }
-<<<<<<< HEAD:jenkinsfile
-
-/usr/local/bin
-=======
->>>>>>> 65238c54453dda5d7481ab633e8dcfc9026019de:Jenkinsfile
