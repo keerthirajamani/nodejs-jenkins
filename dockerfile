@@ -4,5 +4,5 @@ COPY package*.json ./
 RUN npm install
 RUN npm i -h pm2
 COPY . .
-EXPOSE 1257
+EXPOSE 3000
 CMD ["npm", "run", "start","index.js"]
