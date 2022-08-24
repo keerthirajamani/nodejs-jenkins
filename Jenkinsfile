@@ -27,7 +27,7 @@
 pipeline {
 environment {
 registry = "keerthirajamani/nodejsrepo"
-registryCredential = 'Aug1995!'
+registryCredential = 'e6f03bbc-a426-42d7-b8d9-eced80a1e6d7'
 dockerImage = ''
 }
 agent any
