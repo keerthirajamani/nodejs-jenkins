@@ -26,15 +26,15 @@
 
 pipeline {
 environment {
-registry = "YourDockerhubAccount/YourRepository"
-registryCredential = 'dockerhub_id'
+registry = "keerthirajamani/YourRepository"
+registryCredential = 'Aug1995!'
 dockerImage = ''
 }
 agent any
 stages {
 stage('Cloning our Git') {
 steps {
-git 'https://github.com/YourGithubAccount/YourGithubRepository.git'
+git 'https://github.com/keerthirajamani/nodejs-jenkins.git'
 }
 }
 stage('Building our image') {
