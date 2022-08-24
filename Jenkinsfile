@@ -33,11 +33,20 @@ steps{
 script {
 docker.withRegistry( '', registryCredential ) {
 dockerImage.pull()
-sh "docker run -p 3000:3000 $registry:$BUILD_NUMBER"
+//sh "docker run -p 3000:3000 $registry:$BUILD_NUMBER"
 }
 }
 }
 }
+
+stage('Front-end') {
+            agent {
+                docker { image $registry:$BUILD_NUMBER }
+            }
+            steps {
+                sh 'node --version'
+            }
+        }
 
 
 
