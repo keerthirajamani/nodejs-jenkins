@@ -1,6 +1,6 @@
 node {
   withEnv(['PATH_DOCKER=/usr/local/bin']) {
-    sh echo 'My name is $PATH_DOCKER'
+    //sh echo 'My name is $PATH_DOCKER'
   }
      def app 
      stage('clone repository') {
@@ -12,7 +12,7 @@ node {
     }
      stage('Test Image'){ //scan image
        app.inside {
-         sh 'echo "TEST Success"'
+         //sh 'echo "TEST Success"'
       }  
     }
      stage('Push Image'){
